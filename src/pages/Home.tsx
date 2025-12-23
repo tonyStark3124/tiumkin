@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { courses } from '../data/coursesData';
 import { CourseCard } from '../components/molecules/CourseCard';
 import ThemeToggle from '../components/atoms/ThemeToggle';
+import Hero from '../components/organisms/Hero';
+import SolutionSection from '../components/organisms/SolutionSection';
 
 
 export const Home: React.FC = () => {
@@ -12,27 +14,8 @@ export const Home: React.FC = () => {
         <title>פתרונות מקיפים לאתגרי חינוך הילדים</title>
         <meta name="description" content="קורסים וכלים להורים ומחנכים - שיפור תקשורת, שינה, וחוסן רגשי" />
       </Helmet>
-
-      <header className="site-header">
-        <div className="container site-hero">
-          <div className="site-hero__left">
-            <h1 className="site-hero__main-title">
-              מרגישים שהילדים המתבגרים שלכם עושים בחירות לא טובות, ואין לכם דרך להשפיע עליהם?
-            </h1>
-            <div className="site-hero__intro-text">
-              <p>אם אתם הורים לילדים מתבגרים מאתגרים — יש ארגז כלים שכדאי לכם להכיר!</p>
-              <p>הסמכות והמשמעת נצרכות כמובן, אבל לפעמים הם כמו מכת צפרדע: לוקחים מכשיר אחד וצצים שניים במקומו…</p>
-              <p>הם נמשכים לחברים רעים, מכשירים רעים, חוצפה וחוסר משמעת… נשמע מוכר?</p>
-            </div>
-            <div className="site-hero__actions">
-              <a className="btn btn-primary" href="#courses">צפה בקורסים</a>
-              <a className="btn btn-outline" href="/legal">מידע משפטי</a>
-            </div>
-          </div>
-          <div className="site-hero__right"><ThemeToggle /></div>
-        </div>
-      </header>
-
+      <Hero />
+      <SolutionSection/>
       <section id="courses" aria-label="רשימת הקורסים" className="container">
         <div className="course-grid">
           {courses.map((course, i) => (

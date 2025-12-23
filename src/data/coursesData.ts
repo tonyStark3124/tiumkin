@@ -12,7 +12,7 @@ export const courses: ICourse[] = [
 במהלך הקורס משולבים קטעי וידאו של רבנים ואנשי מקצוע, שמדברים על השאלות הקשות (סמארטפונים, חוצפה, שאר האחים וכו').`,
     originalPrice: 900,
     salePrice: 620,
-    imageSrc: '/assets/כלים להורים לנוער בסיכון.png',
+    imageSrc: '/assets/hero-backgraund.jpg',
     purchaseLink: 'https://my.schooler.biz/s/28898/boser/1'
   },
   {
