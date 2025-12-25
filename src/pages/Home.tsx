@@ -5,6 +5,9 @@ import { CourseCard } from '../components/molecules/CourseCard';
 import ThemeToggle from '../components/atoms/ThemeToggle';
 import Hero from '../components/organisms/Hero';
 import SolutionSection from '../components/organisms/SolutionSection';
+import { CoursesSection } from '../components/organisms/CoursesSection';
+import { TestimonialsSpace } from '../components/organisms/TestimonialsSection';
+// import CoursesGallery from '../components/organisms/CoursesSection';
 
 
 export const Home: React.FC = () => {
@@ -16,13 +19,15 @@ export const Home: React.FC = () => {
       </Helmet>
       <Hero />
       <SolutionSection/>
-      <section id="courses" aria-label="רשימת הקורסים" className="container">
+      <CoursesSection/>
+      <TestimonialsSpace/>
+      {/* <section id="courses" aria-label="רשימת הקורסים" className="container">
         <div className="course-grid">
           {courses.map((course, i) => (
             <CourseCard key={course.id} course={course} />
           ))}
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };

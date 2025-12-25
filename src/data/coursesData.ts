@@ -3,6 +3,7 @@ import { ICourse } from '../types/course';
 export const courses: ICourse[] = [
   {
     id: 1,
+    course: true,
     title: 'קורס כלים להורים — נוער בסיכון',
     tagline: '11 שיעורים פרקטיים להתמודדות עם מצבי כאב והתנהגות שאינה מתפקדת',
     description: `קורס זה אינו מיועד לכללי החינוך הקלאסי לילדים חמודים שרק מנסים לרצות. זה קורס שמדבר על מצבי כאב, שבו הנערים כבר אינם מתפקדים כראוי, ואנחנו זקוקים לכלים מעשיים כדי לגרום להם לחזור לעשות בחירות טובות.
@@ -12,11 +13,12 @@ export const courses: ICourse[] = [
 במהלך הקורס משולבים קטעי וידאו של רבנים ואנשי מקצוע, שמדברים על השאלות הקשות (סמארטפונים, חוצפה, שאר האחים וכו').`,
     originalPrice: 900,
     salePrice: 620,
-    imageSrc: '/assets/hero-backgraund.jpg',
+    imageSrc: '/assets/image.jpg',
     purchaseLink: 'https://my.schooler.biz/s/28898/boser/1'
   },
   {
     id: 2,
+    course: true,
     title: 'קורס כלים להורים — הפרעת קשב (ADHD)',
     tagline: '20 שיעורים מעשיים לניהול עצמי ותמיכה בהתנהגויות מאתגרות',
     description: `קורס זה מיועד להורים שמלווים ילדים בעלי הפרעת קשב. הרב אורי זוהר זצ"ל ודן טיומקין משתפים מנסיונם האישי ומדברים במשך 20 שיעורים על הפרעת קשב – לא רק מוסחות, אלא ניהול עצמי מאתגר, עם דחיינות, אימפולסיביות, פתיל קצר וכו'.
@@ -24,11 +26,12 @@ export const courses: ICourse[] = [
 הקורס מתמקד במניעה, בזיהוי החוזקות ובכלים מעשיים כיצד לזהות את החוזקות ולקדם אותם. הפתרון להתמודדות מיטבית עם הפרעת קשב אינו רק "רטלין – כן או לא". בסוף אי אפשר רק להחליש את המנוע, צריך גם לחזק את הברקסים, וזה נושא הקורס. איך מצליחים לחזק את מנגנוני השליטה והניהול העצמי כדי להצליח לעזור לילדים להאמין בעצמם ולעלות על מסלול חיובי של תיקון.`,
     originalPrice: 900,
     salePrice: 620,
-    imageSrc: '/assets/קורס כלים להורים לילדים.png',
+    imageSrc: '/assets/image.png',
     purchaseLink: 'https://my.schooler.biz/s/54136/1674384566174/vDHhvSw'
   },
   {
     id: 3,
+    course: true,
     title: 'קורס כלים למורים ומורות',
     tagline: '10 שיעורים — יישום כלים חינוכיים בכיתה',
     description: `כולם מכירים את הסיסמאות, אבל איך באמת מצליחים ליישם "ימין מקרבת" בכיתה, שיש בה גם ילדים מאתגרים וגם מצטיינים. במשך 10 שיעורים הרב אורי זוהר זצ"ל ודן טיומקין מביאים כלים מעשיים שיכולים לתת תועלת לכל המורים והמורות, דרך כבוד וידידות, אמון ואהבה, תחת מסגרת מחייבת של מוסד לימודי עם תקנון מחייב.
@@ -36,47 +39,51 @@ export const courses: ICourse[] = [
 הקורס כולל גם הדרכה מיוחדת של שני פרקים שעוסקים בהוראת הגמרא, ופרקים רבים שמתאימים למורים ומורות שרוצים לעשות מלאכתם נאמנה ולחנך באופן שבאמת משפיע!`,
     originalPrice: 800,
     salePrice: 620,
-    imageSrc: '/assets/קורס כלים.png',
+    imageSrc: '/assets/image.png',
     purchaseLink: 'https://my.schooler.biz/s/60381/1688042019588/NsPTKZw'
   },
   {
     id: 4,
+    course: false,
     title: 'כלים להורים לנוער בסיכון + קורס כלים להורים לילדים עם הפרעת קשב',
     tagline: '',
     description: '',
     originalPrice: 1240,
     salePrice: 1000,
-    imageSrc: '/assets/נוער בסיכון+הדרכה להורים למתבגרים.png',
+    imageSrc: '/assets/image.png',
     purchaseLink: 'https://app.icount.co.il/m/ab7e7/c68ea131p16u6923871?utm_source=iCount&utm_medium=paypage&utm_campaign=22'
   },
   {
     id: 5,
+    course: false,
     title: 'קורס כלים להורים לילדים עם הפרעת קשב + קורס כלים למורים ומורות',
     tagline: '',
     description: '',
     originalPrice: 1240,
     salePrice: 1000,
-    imageSrc: '/assets/הדרכה להורים עם ילדים בעלי הפרעת קשב+הדרכה למורים ומורות.png',
+    imageSrc: '/assets/image.png',
     purchaseLink: 'https://app.icount.co.il/m/98925/c68ea131p1au6923882?utm_source=iCount&utm_medium=paypage&utm_campaign=26'
   },
   {
     id: 6,
+    course: false,
     title: 'קורס כלים למורים ומורות + קורס כלים להורים לנוער בסיכון',
     tagline: '',
     description: '',
     originalPrice: 1240,
     salePrice: 1000,
-    imageSrc: '/assets/הדרכה למורים ומורות+נוער בסיכון.png',
+    imageSrc: '/assets/image.png',
     purchaseLink: 'https://app.icount.co.il/m/08bb3/c68ea131p1eu6923888?utm_source=iCount&utm_medium=paypage&utm_campaign=30'
   },
   {
     id: 7,
+    course: false,
     title: 'קורס כלים להורים לנוער בסיכון + קורס כלים להורים לילדים עם הפרעת קשב + קורס כלים למורים ומורות',
     tagline: '',
     description: '',
     originalPrice: 1860,
     salePrice: 1500,
-    imageSrc: '/assets/כלל הקורסים.png',
+    imageSrc: '/assets/image.png',
     purchaseLink: 'https://app.icount.co.il/m/c0ecc/c68ea131p14u692388d?utm_source=iCount&utm_medium=paypage&utm_campaign=20'
   }
 ];

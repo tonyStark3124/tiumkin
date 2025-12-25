@@ -1,5 +1,6 @@
 export interface ICourse {
     id: number;
+    course: boolean;
     title: string;
     tagline: string;
     description: string;

@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
 
       {/* צד שמאל - שם */}
       <div style={{...styles.sideSection, justifyContent: 'flex-end'}}>
-        <span style={styles.personName}>דן טיומקין</span>
+        <span style={styles.personName}>הרב דן טיומקין</span>
       </div>
 
       {/* תיקון קטן למובייל ב-CSS כדי למנוע דחיסה קיצונית */}
