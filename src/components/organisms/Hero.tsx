@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
       textAlign: 'center',
       position: 'relative',
       boxSizing: 'border-box',
-      backgroundImage: `url(/assets/heroBackgraund.png)`, 
+      backgroundImage: `url(/assets/image.png)`, 
       backgroundSize: 'cover', 
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
     },
     empathyText: {
       // טקסט הזדהות: עדין יותר וקטן יותר בנייד
-      fontSize: 'clamp(0.9rem, 3.5vw, 1.15rem)',
+      fontSize: 'clamp(0.9rem, 3.5vw, 2.00rem)',
       lineHeight: '1.5',
       color: '#E0E0E0',
       fontWeight: 300,

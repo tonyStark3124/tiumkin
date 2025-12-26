@@ -58,9 +58,20 @@ export const CoursesSection: React.FC = () => {
                     <a href="tel:054-845-5029" style={{ color: '#035D92', textDecoration: 'none', marginRight: '5px', fontWeight: 'bold' }}>054-845-5029</a>
                   </p>
 
-                  <a href="#special-offers" onClick={() => setSelectedCourse(null)} style={bundleLinkStyle}>
+                  {/* <a href="#special-offers" onClick={() => setSelectedCourse(null)} style={bundleLinkStyle}>
                     מעוניינים בחבילת קורסים במחיר מוזל? לחצו כאן
-                  </a>
+                  </a> */}
+                
+                  <button 
+                    onClick={() => {
+                      const element = document.querySelector('#special-offers');
+                      element?.scrollIntoView({ behavior: 'smooth' });
+                      setSelectedCourse(null)
+                    }}
+                    style={bundleLinkStyle}
+                  >
+                    מעוניינים בחבילת קורסים במחיר מוזל? לחצו כאן
+                  </button>
                 </div>
               </div>
             </div>

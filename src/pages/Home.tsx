@@ -6,7 +6,8 @@ import ThemeToggle from '../components/atoms/ThemeToggle';
 import Hero from '../components/organisms/Hero';
 import SolutionSection from '../components/organisms/SolutionSection';
 import { CoursesSection } from '../components/organisms/CoursesSection';
-import { TestimonialsSpace } from '../components/organisms/TestimonialsSection';
+import { TestimonialsSpace } from '../components/organisms/TestimonialsSpace';
+import BuyCourseSection from '../components/organisms/BuyCourseSection';
 // import CoursesGallery from '../components/organisms/CoursesSection';
 
 
@@ -20,6 +21,7 @@ export const Home: React.FC = () => {
       <Hero />
       <SolutionSection/>
       <CoursesSection/>
+      <BuyCourseSection/>
       <TestimonialsSpace/>
       {/* <section id="courses" aria-label="רשימת הקורסים" className="container">
         <div className="course-grid">
