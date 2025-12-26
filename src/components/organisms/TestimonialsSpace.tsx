@@ -136,7 +136,7 @@ const stars: React.CSSProperties = {
 };
 
 const text: React.CSSProperties = {
-  fontSize: '1.75rem',
+  fontSize: '1.15rem',
   lineHeight: '1.85',
   color: '#2E2E2E',
   textAlign: 'right',
