@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 const testimonialsData = [
   "כבר התייאשתי, לא היה לי אמון באנשי מקצוע… **הדיוק פשוט מטורף.** קיבלנו גישה אחרת לגמרי, והילד עלה על מסלול חיובי.",
@@ -10,135 +10,79 @@ const testimonialsData = [
 export const TestimonialsSpace: React.FC = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<'enter' | 'exit'>('enter');
+  const [isPaused, setIsPaused] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDirection('exit');
-
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % testimonialsData.length);
-        setDirection('enter');
-      }, 600);
-
-    }, 4000);
-
-    return () => clearInterval(interval);
+  const handleNext = useCallback(() => {
+    setDirection('exit');
+    setTimeout(() => {
+      setIndex((prev) => (prev + 1) % testimonialsData.length);
+      setDirection('enter');
+    }, 600);
   }, []);
 
+  const handlePrev = useCallback(() => {
+    setDirection('exit');
+    setTimeout(() => {
+      setIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
+      setDirection('enter');
+    }, 600);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(handleNext, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, handleNext]);
+
   return (
-    <section style={wrapperStyle}>
-      <h2 style={title}>הורים מספרים מהלב</h2>
+    <section style={wrapperStyle} aria-labelledby="testimonials-title">
+      <h2 id="testimonials-title" style={title}>הורים מספרים מהלב</h2>
 
-      <div style={carousel}>
-        <div
-          style={{
-            ...card,
-            ...(direction === 'enter' ? enterStyle : exitStyle)
-          }}
-        >
-          {/* Text Section */}
-          <div style={cardContent}>
-            <p
-              style={text}
-              dangerouslySetInnerHTML={{
-                __html: testimonialsData[index].replace(
-                  /\*\*(.*?)\*\*/g,
-                  '<strong style="color:#035D92">$1</strong>'
-                )
-              }}
-            />
-          </div>
+      <div style={containerWithArrows} onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
+        <button onClick={handlePrev} style={arrowButtonStyle} aria-label="עדות קודמת">&#10095;</button>
 
-          {/* Footer Section */}
-          <div style={cardFooter}>
-            <div style={stars}>★★★★★</div>
-            <div style={avatar}></div>
+        <div style={carousel}>
+          <div 
+            aria-live="polite" 
+            aria-atomic="true"
+            style={{ ...card, ...(direction === 'enter' ? enterStyle : exitStyle) }}
+          >
+            <div style={cardContent}>
+              <p
+                style={text}
+                dangerouslySetInnerHTML={{
+                  __html: testimonialsData[index].replace(/\*\*(.*?)\*\*/g, '<strong style="color:#035D92">$1</strong>')
+                }}
+              />
+            </div>
+            <div style={cardFooter}>
+              <div style={stars} aria-label="דירוג 5 כוכבים">★★★★★</div>
+              <div style={avatar} role="img" aria-label="אווטאר משתמש"></div>
+            </div>
           </div>
         </div>
+
+        <button onClick={handleNext} style={arrowButtonStyle} aria-label="עדות הבאה">&#10094;</button>
       </div>
+
+      <button onClick={() => setIsPaused(!isPaused)} style={pauseControlStyle} aria-label={isPaused ? "הפעל אנימציה" : "עצור אנימציה"}>
+        {isPaused ? "המשך ניגון אוטומטי ▶" : "עצור ניגון אוטומטי ⏸"}
+      </button>
     </section>
   );
 };
 
-/* ---------- Styles ---------- */
-
-const wrapperStyle: React.CSSProperties = {
-  padding: '100px 5%',
-  background: '#F9F7F2',
-  direction: 'rtl',
-  textAlign: 'center'
-};
-
-const title: React.CSSProperties = {
-  fontSize: '2.8rem',
-  color: '#035D92',
-  fontWeight: 900,
-  marginBottom: '50px'
-};
-
-const carousel: React.CSSProperties = {
-  position: 'relative',
-  overflow: 'hidden',
-  maxWidth: '720px',
-  margin: '0 auto',
-  height: '280px'
-};
-
-const card: React.CSSProperties = {
-  position: 'absolute',
-  width: '100%',
-  background: '#FFFFFF',
-  borderRadius: '28px',
-  boxShadow: '0 24px 50px rgba(0,0,0,0.08)',
-  overflow: 'hidden',
-  transition: 'transform 0.6s ease-in-out, opacity 0.6s ease-in-out'
-};
-
-const enterStyle: React.CSSProperties = {
-  transform: 'translateX(0)',
-  opacity: 1
-};
-
-const exitStyle: React.CSSProperties = {
-  transform: 'translateX(120%)',
-  opacity: 0
-};
-
-const cardContent: React.CSSProperties = {
-  padding: '40px',
-  paddingBottom: '20px' // משאיר מקום לחלק התחתון
-};
-
-const cardFooter: React.CSSProperties = {
-  height: '20%', // מקסימום 20% מהכארד
-  background: 'rgba(15, 164, 169, 0.2)', // טורקיז שקוף יותר
-  padding: '10px 20px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  position: 'relative'
-};
-
-const avatar: React.CSSProperties = {
-  width: '50px',
-  height: '50px',
-  borderRadius: '50%',
-  background: '#000',
-  position: 'relative',
-  top: '-15px', // בולט מעל הרקע
-  border: '2px solid #FFFFFF'
-};
-
-const stars: React.CSSProperties = {
-  color: '#F4C430',
-  fontSize: '1.2rem',
-  letterSpacing: '2px'
-};
-
-const text: React.CSSProperties = {
-  fontSize: '1.15rem',
-  lineHeight: '1.85',
-  color: '#2E2E2E',
-  textAlign: 'right',
-  margin: 0
-};
+const wrapperStyle: React.CSSProperties = { padding: '80px 5%', background: '#F9F7F2', textAlign: 'center', direction: 'rtl', overflow: 'hidden' };
+const title: React.CSSProperties = { fontSize: '2.5rem', color: '#035D92', fontWeight: 900, marginBottom: '50px' };
+const containerWithArrows: React.CSSProperties = { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', maxWidth: '900px', margin: '0 auto' };
+const carousel: React.CSSProperties = { position: 'relative', width: '100%', maxWidth: '720px', height: '320px', overflow: 'hidden' };
+const card: React.CSSProperties = { position: 'absolute', width: '100%', background: '#FFFFFF', borderRadius: '28px', boxShadow: '0 24px 50px rgba(0,0,0,0.08)', transition: 'all 0.6s ease-in-out', left: 0, right: 0 };
+const enterStyle: React.CSSProperties = { transform: 'translateX(0)', opacity: 1 };
+const exitStyle: React.CSSProperties = { transform: 'translateX(100%)', opacity: 0 };
+const cardContent: React.CSSProperties = { padding: '40px', paddingBottom: '50px' };
+const cardFooter: React.CSSProperties = { height: '60px', background: 'rgba(3, 93, 146, 0.1)', padding: '10px 25px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderRadius: '0 0 28px 28px', position: 'relative' };
+const avatar: React.CSSProperties = { width: '50px', height: '50px', borderRadius: '50%', background: '#035D92', position: 'absolute', left: '25px', top: '-25px', border: '3px solid #fff' };
+const stars: React.CSSProperties = { color: '#BF9100', fontSize: '1.2rem' };
+const text: React.CSSProperties = { fontSize: '1.2rem', lineHeight: '1.8', color: '#222', textAlign: 'right' };
+const arrowButtonStyle: React.CSSProperties = { background: '#fff', border: '1px solid #035D92', width: '45px', height: '45px', borderRadius: '50%', cursor: 'pointer', fontSize: '1.2rem', color: '#035D92' };
+const pauseControlStyle: React.CSSProperties = { marginTop: '30px', background: 'none', border: 'none', color: '#035D92', textDecoration: 'underline', cursor: 'pointer', fontWeight: 'bold' };

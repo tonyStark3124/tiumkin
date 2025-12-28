@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
   return (
     <section style={styles.heroContainer}>
       <div style={styles.overlay}></div>
-      <h1>הדף בבנייה </h1><br/>
+      <h1>הדף לא פעיל </h1><br/>
      
 
       <div style={styles.content}>
