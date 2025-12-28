@@ -8,6 +8,7 @@ import SolutionSection from '../components/organisms/SolutionSection';
 import { CoursesSection } from '../components/organisms/CoursesSection';
 import { TestimonialsSpace } from '../components/organisms/TestimonialsSpace';
 import BuyCourseSection from '../components/organisms/BuyCourseSection';
+import AccessibilityMenu from '../components/organisms/AccessibilityMenu';
 // import CoursesGallery from '../components/organisms/CoursesSection';
 
 
@@ -23,6 +24,7 @@ export const Home: React.FC = () => {
       <CoursesSection/>
       <BuyCourseSection/>
       <TestimonialsSpace/>
+      <AccessibilityMenu/>
       {/* <section id="courses" aria-label="רשימת הקורסים" className="container">
         <div className="course-grid">
           {courses.map((course, i) => (
