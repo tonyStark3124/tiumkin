@@ -48,13 +48,22 @@ export const CoursesSection: React.FC = () => {
             רכישת חבילת קורסים תעניק לכם מעטפת שלמה של כלים במחיר המשתלם ביותר.
           </p>
 
-          <button
+         <button
             type="button"
-            onClick={() =>
-              document
-                .querySelector('#special-offers')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            }
+            onClick={() => {
+              const section = document.querySelector('#special-deals-section');
+              if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                
+                // מחכים לסיום הגלילה ואז מעביר פוקוס
+                setTimeout(() => {
+                  // אם לסקשן יש tabindex, נתן לו פוקוס
+                  if (section instanceof HTMLElement) {
+                    section.focus();
+                  }
+                }, 500); // 500ms להשלמת אנימציית הגלילה
+              }
+            }}
             style={bundleBtnStyle}
             aria-label="מעבר לאזור חבילות הקורסים והמבצעים"
           >

@@ -104,7 +104,7 @@ export const CourseCard: React.FC<Props> = ({ course, index }) => {
 
         <div style={footerStyle}>
           <a
-            href={`#purchase-options-${course.id}`}
+            href={`#purchase-${course.id}`}
             style={primaryBtn}
             aria-label={`מעבר לסילבוס ואפשרויות הצטרפות לקורס ${displayTitle}`}
             className="focus-outline"
