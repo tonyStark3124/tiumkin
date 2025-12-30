@@ -6,6 +6,9 @@ import { LegalFooter } from './components/organisms/LegalFooter';
 import { ContactButtons } from './components/molecules/ContactButtons';
 import Navbar from './components/organisms/Navbar';
 import MaintenanceMode from './pages/MaintenanceMode'; // וודא שהקובץ קיים בנתיב הזה
+import { AccessibilityPage } from './pages/AccessibilityPage';
+import { TermsOfUse } from './pages/TermsOfUse';
+import { TermsEnforcedModal } from './components/organisms/TermsModal';
 
 export const App: React.FC = () => {
   const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
@@ -36,7 +39,9 @@ export const App: React.FC = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/accessibility" element={<AccessibilityPage />} />
         <Route path="/legal/:page" element={<LegalPage />} />
+        <Route path="/termofuse" element={<TermsOfUse />} />
       </Routes>
 
       <ContactButtons />
