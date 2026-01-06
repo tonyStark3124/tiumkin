@@ -81,7 +81,7 @@ export const CoursesSection: React.FC = () => {
             style={phoneLinkStyle}
             aria-label="התקשרות טלפונית למספר 0548455029"
           >
-            +972 54-845-5029
+            054-845-5029
           </a>
           <br />
           או במייל:
