@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
         {/* שם המרצה - צד שמאל */}
         <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
           <span style={subTitleStyle} role="text">
-            הרב דן טיומקין
+           דן טיומקין
           </span>
         </div>
       </nav>

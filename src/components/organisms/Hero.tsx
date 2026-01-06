@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
         alignItems: 'center', 
         textAlign: 'center',
         position: 'relative', 
-        backgroundImage: `url(/assets/image.png)`, 
+        backgroundImage: `url(/assets/reka.jpeg)`, 
         backgroundSize: 'cover', 
         backgroundPosition: 'center', 
         direction: 'rtl',
@@ -55,14 +55,15 @@ const Hero: React.FC = () => {
         <h1 
           style={{ 
             fontSize: 'clamp(1.8rem, 5vw + 1rem, 3.5rem)', 
-            fontWeight: 800, 
+            fontWeight: 500, 
+            fontFamily: 'Varela Round, sans-serif',
             color: '#FFFFFF', 
             marginBottom: 'clamp(15px, 3vh, 30px)', 
             lineHeight: '1.2' 
           }}
         >
           מרגישים שהילדים המתבגרים שלכם עושים בחירות לא טובות
-          <span style={{ color: '#67D7F5', display: 'block', marginTop: '0.5rem' }}>
+          <span style={{ color: '#67D7F5', fontFamily: 'Assistant, sans-serif', display: 'block', marginTop: '0.5rem' }}>
             ואין לכם דרך להשפיע עליהם?
           </span>
         </h1>

@@ -10,6 +10,7 @@ import { TestimonialsSpace } from '../components/organisms/TestimonialsSpace';
 import BuyCourseSection from '../components/organisms/BuyCourseSection';
 import AccessibilityMenu from '../components/organisms/AccessibilityMenu';
 import RavMesserContactForm from '../components/organisms/ContactSection';
+import RavPageForm from '../components/organisms/RavPageForm';
 // import CoursesGallery from '../components/organisms/CoursesSection';
 
 
@@ -26,7 +27,8 @@ export const Home: React.FC = () => {
       <BuyCourseSection/>
       <TestimonialsSpace/>
       <AccessibilityMenu/>
-      <RavMesserContactForm/>
+      {/* <RavMesserContactForm/> */}
+      <RavPageForm/>
 
     </main>
   );

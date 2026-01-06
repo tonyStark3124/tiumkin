@@ -31,7 +31,7 @@ const SolutionSection: React.FC = () => {
           style={{ 
             display: 'block',
             color: logoColors.darkBlue, 
-            fontWeight: 800,
+            fontWeight: 500,
             maxWidth: '950px',
             margin: '0 auto',
             lineHeight: 1.1
@@ -105,7 +105,7 @@ const SolutionSection: React.FC = () => {
               margin: '0 auto'
             }}
           >
-            סדרה טיפולית דיגיטלית המעניקה ארגז כלים פרקטי להתמודדות עם המתבגרים.
+            סדרה דיגיטלית המעניקה ארגז כלים פרקטי להתמודדות עם המתבגרים.
           </p>
           <strong 
             className="call-to-action-text"

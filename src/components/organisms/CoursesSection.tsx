@@ -74,7 +74,8 @@ export const CoursesSection: React.FC = () => {
 
       <div style={bottomSupportBar}>
         <p style={supportBarText}>
-          מתלבטים איזה קורס הכי מתאים לכם? אנחנו כאן להתייעצות:
+         לאפשרות לקבל את הקורס בדיסק אונקי אנא צרו קשר בטלפון:
+         <br />
           <a
             href="tel:+972548455029"
             style={phoneLinkStyle}
@@ -82,6 +83,17 @@ export const CoursesSection: React.FC = () => {
           >
             +972 54-845-5029
           </a>
+          <br />
+          או במייל:
+          <br />
+          <a
+            href="mailto:dan@bosserha.com"
+            style={phoneLinkStyle}
+            aria-label="שליחת דואר אלקטרוני לכתובת dan@bosserha.com"
+          >
+            dan@bosserha.com
+          </a>
+          
         </p>
       </div>
     </section>
