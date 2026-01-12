@@ -121,9 +121,11 @@ const BuyCourseSection: React.FC = () => {
               }}
             >
               <span
-                aria-label={`מחיר מבצע: ${course.salePrice} שקלים`}
+                aria-label={`מחיר: ${course.salePrice} שקלים`}
                 style={{
                   fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
+                  alignItems: 'center',
+                  textAlign: 'center',
                   fontWeight: 'bold',
                   color: colors.darkBlue,
                 }}
@@ -131,7 +133,7 @@ const BuyCourseSection: React.FC = () => {
                 ₪{course.salePrice}
               </span>
 
-              <span
+              {/* <span
                 aria-label={`מחיר מקורי: ${course.originalPrice} שקלים`}
                 style={{
                   textDecoration: 'line-through',
@@ -140,7 +142,7 @@ const BuyCourseSection: React.FC = () => {
                 }}
               >
                 ₪{course.originalPrice}
-              </span>
+              </span> */}
             </div>
 
             <button
