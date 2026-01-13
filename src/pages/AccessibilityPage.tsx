@@ -61,7 +61,7 @@ export const AccessibilityPage: React.FC = () => {
           נשמח לשמוע ממך אם נתקלת בבעיה או יש לך רעיון לשיפור הנגישות באתר.
         </p>
         <ul style={listStyle}>
-          <li>דואר אלקטרוני: <a href="mailto:accessibility@bosserha.com" style={linkStyle}>accessibility@bosserha.com</a></li>
+          <li>דואר אלקטרוני: <a href="mailto:m0548455029@gmail.com" style={linkStyle}>m0548455029@gmail.com</a></li>
           <li>טלפון: +972 54-845-5029</li>
           <li>שעות מענה: ימי א’–ה’, 09:00–17:00</li>
         </ul>

@@ -67,7 +67,7 @@ export const CoursesSection: React.FC = () => {
             style={bundleBtnStyle}
             aria-label="מעבר לאזור חבילות הקורסים והמבצעים"
           >
-            לצפייה בחבילות הקורסים והמבצעים ←
+            לצפייה בחבילות הקורסים והמבצעים
           </button>
         </div>
       </div>

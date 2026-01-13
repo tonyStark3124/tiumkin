@@ -31,7 +31,7 @@ export const courses: ICourse[] = [
 הקורס מתמקד במניעה, בזיהוי החוזקות ובכלים מעשיים כיצד לזהות את החוזקות ולקדם אותם. הפתרון להתמודדות מיטבית עם הפרעת קשב אינו רק "רטלין – כן או לא". בסוף אי אפשר רק להחליש את המנוע, צריך גם לחזק את הברקסים, וזה נושא הקורס. איך מצליחים לחזק את מנגנוני השליטה והניהול העצמי כדי להצליח לעזור לילדים להאמין בעצמם ולעלות על מסלול חיובי של תיקון.`,
     originalPrice: 900,
     salePrice: 620,
-    imageSrc: '/assets/kohotal.jpeg',
+    imageSrc: '/assets/kohotal2.jpeg',
     purchaseLink: 'https://my.schooler.biz/s/54136/1674384566174/vDHhvSw'
   },
   {
@@ -46,7 +46,7 @@ export const courses: ICourse[] = [
 הקורס כולל גם הדרכה מיוחדת של שני פרקים שעוסקים בהוראת הגמרא, ופרקים רבים שמתאימים למורים ומורות שרוצים לעשות מלאכתם נאמנה ולחנך באופן שבאמת משפיע!`,
     originalPrice: 800,
     salePrice: 620,
-    imageSrc: '/assets/image.png',
+    imageSrc: '/assets/teacher.jpeg',
     purchaseLink: 'https://my.schooler.biz/s/60381/1688042019588/NsPTKZw'
   },
   {
