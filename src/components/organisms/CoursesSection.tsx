@@ -28,7 +28,7 @@ export const CoursesSection: React.FC = () => {
 
       <div style={coursesListContainer}>
         {regularCourses.map((course, index) => (
-          <CourseCard key={course.id} course={course} index={index} />
+          <CourseCard key={course.id} course={course} index={index} rabbiImageSrc={"../assets/rabbis-image.png"}/>
         ))}
       </div>
 

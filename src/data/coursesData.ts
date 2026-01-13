@@ -4,6 +4,7 @@ export const courses: ICourse[] = [
   {
     id: 1,
     course: true,
+    CourseSyllabusImagesLink: [],
     popular: true,
     title: 'קורס כלים להורים — נוער בסיכון',
     tagline: '11 שיעורים פרקטיים להתמודדות עם מצבי כאב והתנהגות שאינה מתפקדת',
@@ -16,10 +17,12 @@ export const courses: ICourse[] = [
     salePrice: 620,
     imageSrc: '/assets/image.jpg',
     purchaseLink: 'https://my.schooler.biz/s/28898/boser/1'
+
   },
   {
     id: 2,
     course: true,
+    CourseSyllabusImagesLink: ["../assets/CourseSyllabusImages/ADHDtohen1.jpeg", "../assets/CourseSyllabusImages/ADHDtohen2.jpeg"],
     popular: false,
     title: 'קורס כלים להורים — הפרעת קשב (ADHD)',
     tagline: '20 שיעורים מעשיים לניהול עצמי ותמיכה בהתנהגויות מאתגרות',
@@ -34,6 +37,7 @@ export const courses: ICourse[] = [
   {
     id: 3,
     course: true,
+    CourseSyllabusImagesLink: [],
     popular: false,
     title: 'קורס כלים למורים ומורות',
     tagline: '10 שיעורים — יישום כלים חינוכיים בכיתה',
