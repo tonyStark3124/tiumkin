@@ -65,15 +65,17 @@ const BuyCourseSection: React.FC = () => {
           </div>
         )}
 
-        <img
-          src={course.imageSrc}
-          alt={`תמונת נושא לקורס ${course.title}`}
-          style={{
-            width: '100%',
-            height: 'clamp(180px, 30vw, 220px)',
-            objectFit: 'cover',
-          }}
-        />
+<img
+  src={course.imageSrc}
+  alt={`תמונת נושא לקורס ${course.title}`}
+  style={{
+    width: '100%',
+    height: 'clamp(180px, 30vw, 220px)',
+    objectFit: 'cover',
+    // 50% למרכז ברוחב, 25% כדי להוריד את נקודת המבט למטה (כלומר לחתוך את ה-25% העליונים)
+    objectPosition: '50% 25%', 
+  }}
+/>
 
         <div
           style={{

@@ -5,10 +5,11 @@ import { SyllabusModal } from './SyllabusModal';
 interface Props {
   course: ICourse;
   index: number;
-  rabbiImageSrc: string; // תמונת הרבנים שמרחפת
+  rabbiImageSrc: string;
+  shadowColor?: string; // השדה החדש שביקשת להוסיף
 }
 
-export const CourseCard: React.FC<Props> = ({ course, index, rabbiImageSrc }) => {
+export const CourseCard: React.FC<Props> = ({ course, index, rabbiImageSrc, shadowColor = 'rgba(0,0,0,0.06)' }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,6 +26,11 @@ export const CourseCard: React.FC<Props> = ({ course, index, rabbiImageSrc }) =>
     ? course.title.split('—')[1].trim()
     : course.title;
 
+  // פונקציית עזר למקרה שאתה מעביר צבע HEX ורוצה להוסיף לו שקיפות להילה
+  const cardShadow = shadowColor.startsWith('#') 
+    ? `0 10px 40px ${shadowColor}66` // הוספת שקיפות לצבע HEX
+    : `0 10px 40px ${shadowColor}`;
+
   return (
     <>
       <article
@@ -33,6 +39,8 @@ export const CourseCard: React.FC<Props> = ({ course, index, rabbiImageSrc }) =>
         style={{
           ...cardRowStyle,
           flexDirection: isMobile ? 'column' : (isEven ? 'row' : 'row-reverse'),
+          // כאן אנחנו מזריקים את הצל הדינמי
+          boxShadow: cardShadow,
         }}
       >
         {/* צד התמונה */}
@@ -52,7 +60,6 @@ export const CourseCard: React.FC<Props> = ({ course, index, rabbiImageSrc }) =>
             </div>
           )}
 
-          {/* קבוצת האלמנטים המרחפים - רבנים + טקסט */}
           <div style={floatingGroupWrapper}>
              <img 
                src={rabbiImageSrc} 
@@ -90,9 +97,6 @@ export const CourseCard: React.FC<Props> = ({ course, index, rabbiImageSrc }) =>
                 type="button"
                 onClick={() => setIsExpanded(!isExpanded)}
                 style={readMoreToggle}
-                aria-expanded={isExpanded}
-                aria-controls={`desc-${course.id}`}
-                aria-label={isExpanded ? 'סגור פירוט' : 'הצג פירוט מלא'}
                 className="focus-outline"
               >
                 {isExpanded ? 'סגור פירוט ▲' : 'לפירוט התכנים והכלים ▼'}
@@ -106,7 +110,6 @@ export const CourseCard: React.FC<Props> = ({ course, index, rabbiImageSrc }) =>
               onClick={() => setIsModalOpen(true)}
               style={primaryBtn}
               className="focus-outline"
-              aria-label={`לצפייה בסילבוס המלא של ${displayTitle}`}
             >
               לצפייה בסילבוס המלא {'>'}
             </button>
@@ -115,7 +118,6 @@ export const CourseCard: React.FC<Props> = ({ course, index, rabbiImageSrc }) =>
               href={`#purchase-${course.id}`}
               style={purchaseBtnStyle}
               className="focus-outline"
-              aria-label={`מעבר למסלולי רכישה עבור ${displayTitle}`}
             >
               לקנייה ומסלולים מוזלים
             </a>
@@ -142,11 +144,29 @@ export const CourseCard: React.FC<Props> = ({ course, index, rabbiImageSrc }) =>
   );
 };
 
-// --- Styles (נפתרה בעיית ה-textWrapper) ---
+// --- Styles ---
 
-const cardRowStyle: React.CSSProperties = { display: 'flex', backgroundColor: '#ffffff', borderRadius: '24px', marginBottom: '4vw', overflow: 'hidden', boxShadow: '0 1vw 3vw rgba(0,0,0,0.06)', width: '100%', border: '1px solid #f0f0f0', position: 'relative' };
+const cardRowStyle: React.CSSProperties = { 
+  display: 'flex', 
+  backgroundColor: '#ffffff', 
+  borderRadius: '24px', 
+  marginBottom: '6vw', // הגדלתי מעט את המרווח כדי שההילה לא תיגע בקארד הבא
+  overflow: 'hidden', 
+  width: '100%', 
+  border: '1px solid #f0f0f0', 
+  position: 'relative',
+  transition: 'box-shadow 0.3s ease' // הוספת אנימציה חלקה למעבר בין קארדים
+};
 
-const imageSideStyle: React.CSSProperties = { backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative', minHeight: '40vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' };
+const imageSideStyle: React.CSSProperties = { 
+  backgroundSize: 'cover', 
+  backgroundPosition: 'center 25%', 
+  position: 'relative', 
+  minHeight: '40vh', 
+  display: 'flex', 
+  flexDirection: 'column', 
+  justifyContent: 'flex-end' 
+};
 
 const floatingGroupWrapper: React.CSSProperties = {
   position: 'absolute',
@@ -157,16 +177,16 @@ const floatingGroupWrapper: React.CSSProperties = {
   flexDirection: 'column',
   alignItems: 'center',
   zIndex: 10,
+  height: '100%',
+  justifyContent: 'flex-end'
 };
 
 const rabbiFloatingImgStyle: React.CSSProperties = {
-  // הגובה מוגדר ל-20% מגובה הקונטיינר (imageSideStyle)
-  height: '20%', 
+  maxHeight: '75%', 
   width: 'auto',
   maxWidth: '100%',
   objectFit: 'contain',
   display: 'block',
-  // הצמדה אבסולוטית לתיבה שמתחת למניעת רווח של רקע
   marginBottom: '-1px', 
 };
 
@@ -190,7 +210,6 @@ const popularBadgeStyle: React.CSSProperties = { position: 'absolute', top: '4%'
 
 const contentSideStyle: React.CSSProperties = { padding: 'clamp(20px, 5vw, 50px)', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'right', direction: 'rtl', flex: 1 };
 
-// כאן הוספתי את ה-textWrapper החסר:
 const textWrapper: React.CSSProperties = { 
     marginBottom: '3vw' 
 };

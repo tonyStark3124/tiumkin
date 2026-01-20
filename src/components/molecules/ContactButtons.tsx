@@ -4,10 +4,9 @@ import { IconWhatsapp, IconPhone, IconMail } from '../atoms/Icons';
 export const ContactButtons: React.FC = () => {
   const whatsapp = 'https://api.whatsapp.com/send?phone=972548455029&text=%D7%9E%D7%A8%D7%91%D7%94%20%D7%9C%D7%A7%D7%95%D7%A8%D7%A1%D7%99%D7%9D%20-%20%D7%94%D7%A9%D7%95%D7%A8%D7%94%20%D7%9C%D7%9E%D7%99%D7%93%D7%95%D7%A2%20%2F%20%D7%9C%D7%99%D7%A2%D7%95%D7%A6%20%D7%AA%D7%A4%D7%95%D7%A8%D7%AA%20%D7%A7%D7%95%D7%A8%A1%20%D7%9E%D7%A4%D7%90%20';
   const tel = 'tel:0548455029';
-  const email = "m0548455029@gmail.com";
-  const subject = "פנייה בנוגע לקורסים";
-  const mail = `mailto:${email}?Subject=${encodeURIComponent(subject)}`;
   
+  // שינוי הקישור למזהה ה-ID של הטופס
+  const mailFormId = "#mailForm"; 
 
   // Fluid Sizing Constants
   const containerGap = 'clamp(8px, 1.5vh, 15px)';
@@ -38,11 +37,11 @@ export const ContactButtons: React.FC = () => {
     <div 
       style={{
         display: 'flex',
-        flexDirection: 'column', // שינוי למבנה עומד
+        flexDirection: 'column',
         gap: containerGap,
         position: 'fixed',
-        bottom: 'clamp(20px, 5vh, 50px)', // ריווח תחתון גמיש
-        right: 'clamp(15px, 3vw, 40px)', // ריווח מהצד גמיש
+        bottom: 'clamp(20px, 5vh, 50px)',
+        right: 'clamp(15px, 3vw, 40px)',
         zIndex: 1000,
         pointerEvents: 'none'
       }}
@@ -71,10 +70,11 @@ export const ContactButtons: React.FC = () => {
         </div>
       </a>
 
+      {/* הכפתור המעודכן שגולל לטופס */}
       <a 
         style={{ ...btnBaseStyle, backgroundColor: '#ea4335', pointerEvents: 'auto' }} 
-        href={mail} 
-        aria-label="מייל"
+        href={mailFormId} 
+        aria-label="עבור לטופס יצירת קשר"
       >
         <div style={iconWrapperStyle}>
           <IconMail />

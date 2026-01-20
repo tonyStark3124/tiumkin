@@ -27,7 +27,7 @@ export const LegalFooter: React.FC = () => {
 
           <li>
             <Link
-              to="/legal/privacy"
+              to="/PrivacyPolicy"
               style={linkStyle}
               className="focus-outline"
               aria-label="מעבר למדיניות הפרטיות"

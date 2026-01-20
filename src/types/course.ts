@@ -10,4 +10,5 @@ export interface ICourse {
     salePrice: number;
     imageSrc: string;
     purchaseLink: string;
+    shadowColor?: string;
 }

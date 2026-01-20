@@ -63,7 +63,7 @@ const RavPageForm: React.FC = () => {
   `;
 
   return (
-    <div style={{ width: '100%', maxWidth: '500px', margin: '0 auto' }}>
+    <div style={{ width: '100%', maxWidth: '500px', margin: '0 auto' }} id='mailForm' tabIndex={-1}>
       <iframe
         title="טופס הרשמה לסדנה"
         srcDoc={iframeContent}
