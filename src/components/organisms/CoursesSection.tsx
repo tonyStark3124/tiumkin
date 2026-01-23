@@ -28,7 +28,7 @@ export const CoursesSection: React.FC = () => {
 
       <div style={coursesListContainer}>
         {regularCourses.map((course, index) => (
-          <CourseCard key={course.id} course={course} index={index} rabbiImageSrc={"../assets/rabbis-image.png"} shadowColor={course.shadowColor} />
+          <CourseCard key={course.id} course={course} index={index} rabbiImageSrc={"../assets/optimized/rabbis-image.webp"} shadowColor={course.shadowColor} />
         ))}
       </div>
 
@@ -87,11 +87,11 @@ export const CoursesSection: React.FC = () => {
           או במייל:
           <br />
           <a
-            href="mailto:dan@bosserha.com"
+            href="mailto:m0548455029@gmail.com"
             style={phoneLinkStyle}
-            aria-label="שליחת דואר אלקטרוני לכתובת dan@bosserha.com"
+            aria-label="שליחת דואר אלקטרוני לכתובת m0548455029@gmail.com"
           >
-            dan@bosserha.com
+            m0548455029@gmail.com
           </a>
           
         </p>

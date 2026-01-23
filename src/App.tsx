@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { Home } from './pages/Home';
-import { LegalPage } from './pages/LegalPage';
 import { LegalFooter } from './components/organisms/LegalFooter';
 import { ContactButtons } from './components/molecules/ContactButtons';
 import Navbar from './components/organisms/Navbar';
@@ -10,6 +9,7 @@ import { AccessibilityPage } from './pages/AccessibilityPage';
 import { TermsOfUse } from './pages/TermsOfUse';
 import { TermsEnforcedModal } from './components/organisms/TermsModal';
 import {PrivacyPolicy} from './pages/PrivacyPolicy';
+import RavPageForm from './components/organisms/RavPageForm';
 
 export const App: React.FC = () => {
   // const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
@@ -41,12 +41,12 @@ export const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/accessibility" element={<AccessibilityPage />} />
-        <Route path="/legal/:page" element={<LegalPage />} />
         <Route path="/termofuse" element={<TermsOfUse />} />
         <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
       </Routes>
 
       <ContactButtons />
+      <RavPageForm/>
       <LegalFooter />
     </div>
   );

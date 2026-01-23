@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
               justifyContent: 'center'
             }}>
               <img 
-                src="/assets/logo.jpeg" 
+                src="/assets/optimized/logo.webp" 
                 alt="לוגו בוסר המלאכים - מעבר לדף הבית" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
               />

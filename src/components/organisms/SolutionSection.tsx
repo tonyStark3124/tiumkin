@@ -82,7 +82,7 @@ const SolutionSection: React.FC = () => {
 
         <div style={{ position: 'relative', zIndex: 2, width: '100%' }}>
           <img 
-            src="/assets/rabbis-image.png" 
+            src="/assets/optimized/rabbis-image.webp" 
             alt="הרב אורי זוהר זצ''ל והרב דן טיומקין בשיחה מעמיקה על חינוך ונוער מתמודד" 
             style={{ 
               width: '100%', 

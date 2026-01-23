@@ -1,134 +1,146 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+/**
+ * Accessibility Statement - Final Consistent Version
+ * Includes: Scroll to top, Accessibility focus, Navbar offset, and uniform styling.
+ */
 
 export const AccessibilityPage: React.FC = () => {
-  const colors = {
-    background: '#F9F9F9',
-    heading: '#035D92',
-    text: '#222',
-    link: '#007791',
-    divider: '#CCC'
-  };
+  const navigate = useNavigate();
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const lastUpdated = "30.12.2025";
+  const contactEmail = "m0548455029@gmail.com";
+
+  useEffect(() => {
+    // 1. גלילה לראש הדף בטעינה
+    window.scrollTo(0, 0);
+
+    // 2. העברת פוקוס הנגישות לראש הדף
+    if (titleRef.current) {
+      titleRef.current.focus();
+    }
+  }, []);
 
   return (
-    <main 
-      style={wrapper} 
-      aria-label="דף הצהרת נגישות"
-      lang="he"
+    <main
+      style={wrapperStyle}
+      aria-labelledby="accessibility-title"
+      role="main"
     >
-      <h1 style={mainTitle}>הצהרת נגישות</h1>
+      <h1 
+        id="accessibility-title" 
+        ref={titleRef}
+        tabIndex={-1}
+        style={titleStyle}
+      >
+        הצהרת נגישות
+      </h1>
 
       <section style={sectionStyle}>
-        <h2 style={sectionTitle}>מחויבות לנגישות</h2>
-        <p style={textStyle}>
-          אנו ב–<strong>בוסר המלאכים</strong> מחויבים לאפשר חוויית גלישה נגישה, שוויונית ומכבדת לכלל המשתמשים,
-          כולל אנשים עם מוגבלויות מסוגים שונים.
+        <h2>מחויבות לנגישות</h2>
+        <p>
+          אנו ב–<strong>בוסר פתרונות חינוך</strong> מחויבים לאפשר חוויית גלישה נגישה, שוויונית ומכבדת לכלל המשתמשים,
+          כולל אנשים עם מוגבלויות מסוגים שונים. אנו רואים בנגישות ערך עליון וחלק בלתי נפרד מתפיסת השירות שלנו.
         </p>
-      </section>
 
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>תקנים ואופן ההתאמה</h2>
-        <ul style={listStyle}>
+        <h2>תקנים ואופן ההתאמה</h2>
+        <ul>
           <li><strong>תקן ישראלי:</strong> ת"י 5568 – נגישות תכנים באינטרנט – רמת AA</li>
           <li><strong>תקן בינלאומי:</strong> WCAG 2.1 – רמת AA</li>
         </ul>
-      </section>
 
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>התאמות נגישות שבוצעו</h2>
-        <ul style={listStyle}>
-          <li>ניווט מלא באמצעות מקלדת בלבד</li>
-          <li>מבנה סמנטי ברור של HTML, כולל היררכיית כותרות תקנית</li>
-          <li>טקסטים ברורים בעברית עם ניגודיות צבעים מספקת</li>
-          <li>תיאורי טקסט חלופי (alt) לכל התמונות המשמעותיות</li>
-          <li>תמיכה בקוראי מסך נפוצים: NVDA, JAWS, VoiceOver ועוד</li>
-          <li>קישורים ואובייקטים עם תוויות ברורות בעברית</li>
-          <li>תמיכה בהגדלת טקסט דרך הגדרות הדפדפן</li>
+        <h2>התאמות נגישות שבוצעו</h2>
+        <p>באתר זה הוטמעו התאמות טכנולוגיות רבות, ביניהן:</p>
+        <ul>
+          <li>ניווט מלא באמצעות מקלדת (Keyboard Navigation)</li>
+          <li>מבנה סמנטי ברור והיררכיית כותרות תקנית</li>
+          <li>ניגודיות צבעים גבוהה לקריאה נוחה</li>
+          <li>טקסט חלופי (Alt Text) לתמונות</li>
+          <li>תמיכה מלאה בקוראי מסך נפוצים (NVDA, JAWS)</li>
+          <li>מנגנון "דלג לתוכן המרכזי" ופוקוס ברור על אלמנטים</li>
         </ul>
-      </section>
 
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>מגבלות ידועות וחריגות</h2>
-        <p style={textStyle}>
-          יתכן שחלק מהתכנים או רכיבים טרם הונגשו במלואם.  
-          חלק מתכנים צד ג’ (כגון PDF או יישומים חיצוניים) עשויים שלא להיות נגישים במלואם.  
-          ייתכן שחלק מהמדיה חסר תמלול מלא או כתוביות תקניות.
+        <h2>מגבלות ידועות</h2>
+        <p>
+          למרות מאמצינו, ייתכן שחלק מהתכנים (כגון קבצי PDF חיצוניים או רכיבי צד ג') טרם הונגשו במלואם. 
+          אנו ממשיכים במאמצים לשפר את נגישות האתר כחלק ממחויבותנו לאפשר לכלל האוכלוסייה להשתמש בו.
+        </p>
+
+        <h2>יצירת קשר בנושא נגישות</h2>
+        <p>
+          נתקלתם בבעיה? יש לכם הצעה לשיפור? נשמח לעמוד לרשותכם:
+        </p>
+        <div style={{ background: '#eef2f7', padding: '20px', borderRadius: '0.8rem', marginTop: '1rem' }}>
+          <p><strong>דוא"ל:</strong> <a href={`mailto:${contactEmail}`} style={linkStyle}>{contactEmail}</a></p>
+          <p><strong>טלפון:</strong> 054-845-5029</p>
+          <p><strong>שעות מענה:</strong> ימי א’–ה’, 09:00–17:00</p>
+        </div>
+
+        <p style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#666' }}>
+          <strong>תאריך עדכון אחרון:</strong> {lastUpdated}
         </p>
       </section>
 
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>יצירת קשר בנושא נגישות</h2>
-        <p style={textStyle}>
-          נשמח לשמוע ממך אם נתקלת בבעיה או יש לך רעיון לשיפור הנגישות באתר.
-        </p>
-        <ul style={listStyle}>
-          <li>דואר אלקטרוני: <a href="mailto:m0548455029@gmail.com" style={linkStyle}>m0548455029@gmail.com</a></li>
-          <li>טלפון: +972 54-845-5029</li>
-          <li>שעות מענה: ימי א’–ה’, 09:00–17:00</li>
-        </ul>
-      </section>
-
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>עדכונים ושיפור מתמיד</h2>
-        <p style={textStyle}>
-          אנו מחויבים לעדכן את דף זה תוך תיעדוף שינויים משמעותיים באתר או בהתקדמות ביישום תקני נגישות.
-        </p>
-        <p style={textStyle}><strong>תאריך עדכון אחרון:</strong> 30.12.2025</p>
-      </section>
-
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>מידע משפטי ורפרנסים</h2>
-        <p style={textStyle}>
-          ההצהרה פורסמה בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות ותקנות נגישות השירות, וכן בהתאם להנחיות WCAG 2.1 Level AA.
-        </p>
-      </section>
+      <button
+        style={buttonStyle}
+        onClick={() => navigate(-1)}
+        aria-label="חזרה לדף הקודם"
+      >
+        חזרה לדף הקודם
+      </button>
     </main>
   );
 };
 
-// --- Styles ---
+// --- Styles (Consistent with Terms and Privacy) ---
 
-const wrapper: React.CSSProperties = {
-  padding: 'clamp(30px, 5vw, 80px)',
-  maxWidth: '1000px',
-  margin: '0 auto',
-  fontFamily: 'Arial, sans-serif',
-  backgroundColor: '#F9F9F9',
-  color: '#222',
+const wrapperStyle: React.CSSProperties = {
+  padding: 'clamp(20px, 5vw, 60px)',
+  marginTop: '80px', // בטיחות מהנאבבאר
+  maxWidth: '900px',
+  marginRight: 'auto',
+  marginLeft: 'auto',
   direction: 'rtl',
-  lineHeight: 1.6
+  fontFamily: 'Arial, sans-serif',
+  color: '#222',
+  lineHeight: 1.6,
+  outline: 'none'
 };
 
-const mainTitle: React.CSSProperties = {
-  fontSize: 'clamp(2rem, 5vw + 1rem, 3rem)',
-  fontWeight: 900,
+const titleStyle: React.CSSProperties = {
+  fontSize: 'clamp(1.8rem, 4vw + 1rem, 3rem)',
+  color: '#023E8A',
   textAlign: 'center',
-  marginBottom: 'clamp(20px, 4vw, 40px)',
-  color: '#035D92'
+  marginBottom: '2rem',
+  outline: 'none'
 };
 
 const sectionStyle: React.CSSProperties = {
-  marginBottom: 'clamp(30px, 5vw, 50px)'
-};
-
-const sectionTitle: React.CSSProperties = {
-  fontSize: 'clamp(1.5rem, 4vw + 0.5rem, 2rem)',
-  fontWeight: 800,
-  marginBottom: 'clamp(15px, 3vw, 25px)',
-  color: '#035D92'
-};
-
-const textStyle: React.CSSProperties = {
-  fontSize: 'clamp(1rem, 1.2vw + 0.2rem, 1.2rem)',
-  marginBottom: '1em'
-};
-
-const listStyle: React.CSSProperties = {
-  marginLeft: '0',
-  paddingLeft: '1em',
-  listStyleType: 'disc'
+  fontSize: 'clamp(0.95rem, 1vw + 0.3rem, 1.2rem)',
+  background: '#f9f9f9',
+  padding: 'clamp(20px, 3vw, 40px)',
+  borderRadius: '1rem',
+  border: '1px solid #ccc'
 };
 
 const linkStyle: React.CSSProperties = {
-  color: '#007791',
+  color: '#023E8A',
+  fontWeight: 'bold',
   textDecoration: 'underline'
+};
+
+const buttonStyle: React.CSSProperties = {
+  marginTop: '2rem',
+  display: 'block',
+  width: '100%',
+  padding: 'clamp(12px, 2vh, 18px)',
+  fontSize: 'clamp(1rem, 1.5vw + 0.2rem, 1.2rem)',
+  fontWeight: 'bold',
+  backgroundColor: '#023E8A',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '0.8rem',
+  cursor: 'pointer',
+  transition: 'background-color 0.2s ease'
 };

@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
         alignItems: 'center', 
         textAlign: 'center',
         position: 'relative', 
-        backgroundImage: `url(/assets/reka.jpeg)`, 
+        backgroundImage: `url(/assets/optimized/reka.webp)`, 
         backgroundSize: 'cover', 
         backgroundPosition: 'center', 
         direction: 'rtl',

@@ -14,6 +14,8 @@ const BuyCourseSection: React.FC = () => {
 
   const renderCourseCard = (course: any) => {
     const isSpecialDeal = course.course === false;
+    // הגדרת צבע ברירת מחדל אם shadowColor לא קיים בדאטה
+    const dynamicShadow = course.shadowColor || 'rgba(0,0,0,0.1)';
 
     return (
       <article
@@ -26,21 +28,26 @@ const BuyCourseSection: React.FC = () => {
           backgroundColor: 'white',
           borderRadius: 'clamp(12px, 1.5vw, 20px)',
           overflow: 'hidden',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          // הוספת ההילה הראשונית
+          boxShadow: `0 4px 20px ${dynamicShadow}`, 
           border: '1px solid #eee',
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
           width: '100%',
-          transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+          maxWidth: '380px',
+          flex: '1 1 300px',
+          transition: 'transform 0.3s ease, box-shadow 0.3s ease',
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-4px)';
-          e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)';
+          e.currentTarget.style.transform = 'translateY(-6px)';
+          // הילה דומיננטית יותר בריחוף
+          e.currentTarget.style.boxShadow = `0 12px 30px ${dynamicShadow}`;
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+          // חזרה להילה המקורית
+          e.currentTarget.style.boxShadow = `0 4px 20px ${dynamicShadow}`;
         }}
       >
         {isSpecialDeal && (
@@ -65,17 +72,16 @@ const BuyCourseSection: React.FC = () => {
           </div>
         )}
 
-<img
-  src={course.imageSrc}
-  alt={`תמונת נושא לקורס ${course.title}`}
-  style={{
-    width: '100%',
-    height: 'clamp(180px, 30vw, 220px)',
-    objectFit: 'cover',
-    // 50% למרכז ברוחב, 25% כדי להוריד את נקודת המבט למטה (כלומר לחתוך את ה-25% העליונים)
-    objectPosition: '50% 25%', 
-  }}
-/>
+        <img
+          src={course.imageSrc}
+          alt={`תמונת נושא לקורס ${course.title}`}
+          style={{
+            width: '100%',
+            height: 'clamp(180px, 30vw, 220px)',
+            objectFit: 'cover',
+            objectPosition: '50% 25%', 
+          }}
+        />
 
         <div
           style={{
@@ -134,17 +140,6 @@ const BuyCourseSection: React.FC = () => {
               >
                 ₪{course.salePrice}
               </span>
-
-              {/* <span
-                aria-label={`מחיר מקורי: ${course.originalPrice} שקלים`}
-                style={{
-                  textDecoration: 'line-through',
-                  color: '#777',
-                  fontSize: 'clamp(0.875rem, 2vw, 1.2rem)',
-                }}
-              >
-                ₪{course.originalPrice}
-              </span> */}
             </div>
 
             <button
@@ -193,11 +188,10 @@ const BuyCourseSection: React.FC = () => {
         @keyframes highlight-blink {
           0%, 100% { 
             outline: 3px solid transparent; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
           }
           50% { 
             outline: 3px solid #00B4D8; 
-            box-shadow: 0 0 16px #00B4D8; 
+            box-shadow: 0 0 20px #00B4D8; 
           }
         }
 
@@ -246,7 +240,7 @@ const BuyCourseSection: React.FC = () => {
       <a href="#courses-section" className="skip-link" style={{ top: '-140px' }}>
         דלג לקורסים הרגילים
       </a>
-        {/* סקשן קורסים רגילים */}
+
       {regularCourses.length > 0 && (
         <section
           id="courses-section"
@@ -291,8 +285,8 @@ const BuyCourseSection: React.FC = () => {
 
             <div
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+                display: 'flex',
+                flexWrap: 'wrap',
                 gap: 'clamp(16px, 3vw, 40px)',
                 justifyContent: 'center',
               }}
@@ -302,7 +296,7 @@ const BuyCourseSection: React.FC = () => {
           </div>
         </section>
       )}
-      {/* סקשן מבצעים מיוחדים */}
+
       {specialDeals.length > 0 && (
         <section
           id="special-deals-section"
@@ -349,8 +343,8 @@ const BuyCourseSection: React.FC = () => {
 
             <div
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+                display: 'flex',
+                flexWrap: 'wrap',
                 gap: 'clamp(16px, 3vw, 40px)',
                 justifyContent: 'center',
               }}
@@ -360,8 +354,6 @@ const BuyCourseSection: React.FC = () => {
           </div>
         </section>
       )}
-
-      
     </>
   );
 };

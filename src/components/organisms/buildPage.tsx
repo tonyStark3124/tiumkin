@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
       textAlign: 'center',
       position: 'relative',
       boxSizing: 'border-box',
-      backgroundImage: `url(/assets/image.png)`, 
+      backgroundImage: `url(/assets/optimized/image.webp)`, 
       backgroundSize: 'cover', 
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',

@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 /**
- * Privacy Policy Component
- * Styled to match the Terms of Use design perfectly.
+ * Privacy Policy Component - Final Version
+ * Includes: Scroll to top, Accessibility focus, Navbar offset, and updated Email.
  */
 
 export const PrivacyPolicy: React.FC = () => {
-  const lastUpdated = "20 ינואר 2025";
+  const navigate = useNavigate();
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const lastUpdated = "20 במאי 2024";
   const contactEmail = "m0548455029@gmail.com";
+
+  useEffect(() => {
+    // 1. גלילה לראש הדף בטעינה
+    window.scrollTo(0, 0);
+
+    // 2. העברת פוקוס הנגישות לראש הדף
+    if (titleRef.current) {
+      titleRef.current.focus();
+    }
+  }, []);
 
   return (
     <main
@@ -15,7 +28,14 @@ export const PrivacyPolicy: React.FC = () => {
       aria-labelledby="privacy-title"
       role="main"
     >
-      <h1 id="privacy-title" style={titleStyle}>מדיניות פרטיות</h1>
+      <h1 
+        id="privacy-title" 
+        ref={titleRef}
+        tabIndex={-1}
+        style={titleStyle}
+      >
+        מדיניות פרטיות
+      </h1>
 
       <section style={sectionStyle}>
         <p>אנו בבוסר פתרונות חינוך מכבדים את פרטיות המשתמשים. להלן פירוט האופן שבו אנו אוספים ומשתמשים במידע:</p>
@@ -79,7 +99,7 @@ export const PrivacyPolicy: React.FC = () => {
 
       <button
         style={buttonStyle}
-        onClick={() => window.history.back()}
+        onClick={() => navigate(-1)}
         aria-label="חזרה לדף הקודם"
       >
         חזרה לדף הקודם
@@ -88,23 +108,27 @@ export const PrivacyPolicy: React.FC = () => {
   );
 };
 
-// --- Styles (Matches your Terms of Use exactly) ---
+// --- Styles (Identical to TermsOfUse for consistency) ---
 
 const wrapperStyle: React.CSSProperties = {
   padding: 'clamp(20px, 5vw, 60px)',
+  marginTop: '80px', // מונע מהנאבבאר להסתיר את הכותרת
   maxWidth: '900px',
-  margin: '0 auto',
+  marginRight: 'auto',
+  marginLeft: 'auto',
   direction: 'rtl',
   fontFamily: 'Arial, sans-serif',
   color: '#222',
-  lineHeight: 1.6
+  lineHeight: 1.6,
+  outline: 'none'
 };
 
 const titleStyle: React.CSSProperties = {
   fontSize: 'clamp(1.8rem, 4vw + 1rem, 3rem)',
   color: '#023E8A',
   textAlign: 'center',
-  marginBottom: '2rem'
+  marginBottom: '2rem',
+  outline: 'none'
 };
 
 const sectionStyle: React.CSSProperties = {
