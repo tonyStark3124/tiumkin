@@ -63,6 +63,7 @@ export const CourseCard: React.FC<Props> = ({ course, index, rabbiImageSrc, shad
           <div style={floatingGroupWrapper}>
              <img 
                src={rabbiImageSrc} 
+               loading="lazy"
                alt="איור רבני הקורס" 
                style={rabbiFloatingImgStyle} 
              />

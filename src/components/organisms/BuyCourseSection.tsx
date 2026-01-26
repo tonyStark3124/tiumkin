@@ -75,6 +75,7 @@ const BuyCourseSection: React.FC = () => {
         <img
           src={course.imageSrc}
           alt={`תמונת נושא לקורס ${course.title}`}
+          loading="lazy"
           style={{
             width: '100%',
             height: 'clamp(180px, 30vw, 220px)',
