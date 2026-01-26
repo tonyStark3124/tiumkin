@@ -27,7 +27,7 @@ async function optimizeImages() {
 
                 await sharp(inputFilePath)
                     .resize(1200) // מגביל רוחב מקסימלי ל-1200px (אופציונלי)
-                    .webp({ quality: 75 }) // הופך ל-WebP עם 75% איכות (איזון מושלם)
+                    .webp({ quality: 50 }) // הופך ל-WebP עם 75% איכות (איזון מושלם)
                     .toFile(outputFilePath);
 
                 console.log(`✅ Optimized: ${file} -> ${fileName}.webp`);
