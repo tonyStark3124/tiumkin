@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 
 /**
@@ -28,6 +29,10 @@ export const PrivacyPolicy: React.FC = () => {
       aria-labelledby="privacy-title"
       role="main"
     >
+      <Helmet>
+        <title>מדיניות פרטיות | בוסר המלאכים</title>
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <h1 
         id="privacy-title" 
         ref={titleRef}

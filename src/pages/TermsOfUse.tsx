@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 
 export const TermsOfUse: React.FC = () => {
@@ -26,6 +27,10 @@ export const TermsOfUse: React.FC = () => {
       aria-labelledby="terms-title"
       role="main"
     >
+      <Helmet>
+        <title>תנאי שימוש | בוסר המלאכים</title>
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       {/* הוספת tabIndex מאפשרת לפוקוס לנחות כאן עבור קוראי מסך */}
       <h1 
         id="terms-title" 

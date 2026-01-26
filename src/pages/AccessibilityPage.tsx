@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 
 /**
@@ -23,11 +24,16 @@ export const AccessibilityPage: React.FC = () => {
   }, []);
 
   return (
+    
     <main
       style={wrapperStyle}
       aria-labelledby="accessibility-title"
       role="main"
     >
+      <Helmet>
+        <title>הצהרת נגישות | בוסר המלאכים</title>
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <h1 
         id="accessibility-title" 
         ref={titleRef}

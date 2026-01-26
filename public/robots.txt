@@ -1,2 +1,10 @@
+# ברוכים הבאים לקובץ הרובוטס של בוסר המלאכים
 User-agent: *
-Disallow:
+Allow: /
+
+# מניעת סריקה של תיקיות מערכת וקבצי לוג
+Disallow: /cgi-bin/
+Disallow: /private/
+
+# קישור ישיר למפת האתר כדי שגוגל ימצא את כל הקורסים מהר
+Sitemap: https://bosserha.com/sitemap.xml
