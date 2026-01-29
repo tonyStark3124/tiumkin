@@ -46,7 +46,7 @@ export const App: React.FC = () => {
       </Routes>
 
       <ContactButtons />
-      <RavPageForm/>
+      {/* <RavPageForm/> */}
       <LegalFooter />
     </div>
   );

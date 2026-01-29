@@ -6,7 +6,8 @@ export const ContactButtons: React.FC = () => {
   const tel = 'tel:0548455029';
   
   // שינוי הקישור למזהה ה-ID של הטופס
-  const mailFormId = "#mailForm"; 
+  // const mailFormId = "#mailForm"; 
+  const mailto = "mailto:m0548455029@gmail.com?subject=פנייה%20דרך%20האתר%20בוסר%20המלאכים&body=שלום%20דן%2C%0D%0A%0D%0Aאני%20רוצה%20לקבל%20מידע%20נוסף%20על%20הקורסים.%0D%0A%0D%0Aתודה%2C%0D%0A";
 
   // Fluid Sizing Constants
   const containerGap = 'clamp(8px, 1.5vh, 15px)';
@@ -73,8 +74,8 @@ export const ContactButtons: React.FC = () => {
       {/* הכפתור המעודכן שגולל לטופס */}
       <a 
         style={{ ...btnBaseStyle, backgroundColor: '#ea4335', pointerEvents: 'auto' }} 
-        href={mailFormId} 
-        aria-label="עבור לטופס יצירת קשר"
+        href={mailto} 
+        aria-label="אימייל"
       >
         <div style={iconWrapperStyle}>
           <IconMail />
